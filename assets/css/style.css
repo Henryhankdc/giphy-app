@@ -27,3 +27,7 @@ div#gif-holder {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+.item {
+    margin:5px;
+}

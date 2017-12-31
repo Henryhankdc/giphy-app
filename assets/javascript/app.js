@@ -17,6 +17,8 @@ starterButtons();
     $('.gif-button').on('click', function(e){
 
         e.preventDefault();
+        $("#gif-holder").empty();
+
         console.log('clicked');
         var gifValue = $(this).attr("data-value");
 
