@@ -1,0 +1,14 @@
+.side-bar-container h2, .main-content-container h2 {
+    text-transform: uppercase;
+}
+
+.side-bar {
+    background-color:#388E3C;
+    height:100%;
+    border-right:2px solid #BDBDBD;
+}
+.main-content {
+    background-color: #C8E6C9;
+    height:100%;
+    
+}
