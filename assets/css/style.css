@@ -21,3 +21,9 @@
     height:100%;
     
 }
+
+div#gif-holder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

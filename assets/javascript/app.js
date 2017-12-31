@@ -5,7 +5,7 @@ var topics = ['Fine', 'Yes!', 'No!', 'No Problem', 'FML', 'LOL', 'Magic'];
 function starterButtons(){
     // create buttons for initial topics. each buttons contains data value
     for (i= 0; i < topics.length; i++){
-        var startButtons =$('<button type="button" class="btn btn-secondary">');
+        var startButtons =$('<button type="button" class="btn btn-secondary gif-button">');
         $('#gif-button-wrapper').append(startButtons);
         $(startButtons).attr('data-value', topics[i]);
         $(startButtons).text(topics[i]);
@@ -14,31 +14,52 @@ function starterButtons(){
 }
 starterButtons();
 
-// $("#cat-button").on("click", function() {
+    $('.gif-button').on('click', function(e){
 
-//     //
-//     var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=cats";
+        e.preventDefault();
+        console.log('clicked');
+        var gifValue = $(this).attr("data-value");
 
-//     //
-//     $.ajax({
-//       url: queryURL,
-//       method: "GET"
-//     })
 
-//     //
-//     .done(function(response) {
+         // Constructing a URL to search Giphy for the name of the person who said the quote
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+    gifValue + "&api_key=dc6zaTOxFJmzC&limit=10";
 
-//       //
-//       var imageUrl = response.data.image_original_url;
+  // Performing our AJAX GET request
+  $.ajax({
+      url: queryURL,
+      method: "GET"
+    })
 
-//       //
-//       var catImage = $("<img>");
+     // After the data comes back from the API
+     .done(function(response) {
+         console.log(response);
+        // Storing an array of results in the results variable
+        var results = response.data;
 
-//       //
-//       catImage.attr("src", imageUrl);
-//       catImage.attr("alt", "cat image");
+        for (var i = 0; i < results.length; i++) {
+            // create div to hold gif image
+            var gifItemDiv = $("<div class='item'>");
 
-//       //
-//       $("#images").prepend(catImage);
-//     });
-//   });
+            // create gif img tag
+            var gifImage = $("<img>");
+
+            // Giving the image tag an src attribute of a proprty pulled off the
+            // result item
+            gifImage.attr("src", results[i].images.fixed_height_small.url);
+
+              // Appending the paragraph and personImage we created to the "gifDiv" div we created
+            // gifDiv.append(p);
+            gifItemDiv.append(gifImage);
+
+            // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
+            $("#gif-holder").prepend(gifItemDiv);
+
+        }
+
+
+     });
+
+
+    });
+//   end onclick
