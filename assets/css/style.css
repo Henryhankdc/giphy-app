@@ -1,3 +1,15 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-family: 'Sedgwick Ave Display', cursive;
+
+}
+
+
+
+
 .jumbotron {
     margin-bottom:0;
 }
@@ -15,10 +27,12 @@
     background-color:#388E3C;
     height:100%;
     border-right:2px solid #BDBDBD;
+    padding-top:30px;
 }
 .main-content {
     background-color: #C8E6C9;
     height:100%;
+    padding-top:30px;
     
 }
 
@@ -30,4 +44,8 @@ div#gif-holder {
 
 .item {
     margin:5px;
+}
+
+img.gif {
+    max-width: 250px;
 }

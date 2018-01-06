@@ -32,7 +32,7 @@ function general() {
 
          // Constructing a URL to search Giphy for the name of the person who said the quote
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-    gifValue + "&api_key=dc6zaTOxFJmzC&limit=10";
+    gifValue + "&api_key=dc6zaTOxFJmzC&limit=9";
 
   // Performing our AJAX GET request
   $.ajax({
@@ -56,12 +56,12 @@ function general() {
             // Giving the image tag an src attribute of a proprty pulled off the
             // result item
             // Still image
-            gifImage.attr("src", results[i].images.fixed_height_small_still.url).addClass('gif');
+            gifImage.attr("src", results[i].images.fixed_height_still.url).addClass('gif');
             // still image as data-still
-            gifImage.attr("data-still", results[i].images.fixed_height_small_still.url);
+            gifImage.attr("data-still", results[i].images.fixed_height_still.url);
 
             // date-animate, animated image
-            gifImage.attr("data-animate", results[i].images.fixed_height_small.url);
+            gifImage.attr("data-animate", results[i].images.fixed_height.url);
 
               // Appending the paragraph and personImage we created to the "gifDiv" div we created
             // gifDiv.append(p);
@@ -127,7 +127,7 @@ function newGifButton(){
 
          // Constructing a URL to search Giphy for the name of the person who said the quote
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-    gifValue + "&api_key=dc6zaTOxFJmzC&limit=10";
+    gifValue + "&api_key=dc6zaTOxFJmzC&limit=9";
 
   // Performing our AJAX GET request
   $.ajax({
