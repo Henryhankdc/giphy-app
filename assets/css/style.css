@@ -46,6 +46,14 @@ div#gif-holder {
     margin:5px;
 }
 
+.item p {
+    text-align: center;
+}
+
+.rating {
+    text-transform: uppercase;
+}
+
 img.gif {
     max-width: 250px;
 }

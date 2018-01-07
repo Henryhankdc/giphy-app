@@ -51,10 +51,12 @@ function general() {
 
             // create gif img tag with still state
             var gifImage = $("<img data-state=\"still\">");
+            var gifRating = $('<p>');
 
             // Giving the image tag an src attribute of a proprty pulled off the
             // result item
             // Still image
+        
             gifImage.attr("src", results[i].images.fixed_height_still.url).addClass('gif');
             // still image as data-still
             gifImage.attr("data-still", results[i].images.fixed_height_still.url);
@@ -62,9 +64,12 @@ function general() {
             // date-animate, animated image
             gifImage.attr("data-animate", results[i].images.fixed_height.url);
 
+            gifRating.append('Rating: ' + '<span class="rating">' + results[i].rating + '</span>');
+            console.log(results[i].rating);
               // Appending the paragraph and personImage we created to the "gifDiv" div we created
-            // gifDiv.append(p);
-            gifItemDiv.append(gifImage);
+
+            
+            gifItemDiv.append(gifImage, gifRating);
 
             // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
             $("#gif-holder").prepend(gifItemDiv);
