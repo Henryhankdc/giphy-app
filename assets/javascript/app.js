@@ -106,6 +106,7 @@ function newGifButton(){
     $('#submit-btn').on('click', function(e){
         e.preventDefault();
         var inputValue = $('#gif-text').val();
+
     console.log(inputValue);
         
     // create a new button with data value
@@ -113,19 +114,21 @@ function newGifButton(){
         $('#gif-button-wrapper').append(newButton);
         $(newButton).attr('data-value', inputValue);
         $(newButton).text(inputValue);
+        // remove value from input field after hitting submit
+        $('#gif-text').val('');
 
-        // HERE***********************************
         // On click for gif buttons.
     $('.gif-button').on('click', function(e){
 
         e.preventDefault();
-        $("#gif-holder").empty();
+        $('#gif-holder').empty();
+        
 
-        console.log('clicked');
+        // console.log('clicked');
         var gifValue = $(this).attr("data-value");
 
 
-         // Constructing a URL to search Giphy for the name of the person who said the quote
+ // Constructing a URL to search Giphy with limit of 9
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
     gifValue + "&api_key=dc6zaTOxFJmzC&limit=9";
 
@@ -151,12 +154,12 @@ function newGifButton(){
             // Giving the image tag an src attribute of a proprty pulled off the
             // result item
             // Still image
-            gifImage.attr("src", results[i].images.fixed_height_small_still.url).addClass('gif');
+            gifImage.attr("src", results[i].images.fixed_height_still.url).addClass('gif');
             // still image as data-still
-            gifImage.attr("data-still", results[i].images.fixed_height_small_still.url);
+            gifImage.attr("data-still", results[i].images.fixed_height_still.url);
 
             // date-animate, animated image
-            gifImage.attr("data-animate", results[i].images.fixed_height_small.url);
+            gifImage.attr("data-animate", results[i].images.fixed_height.url);
 
               // Appending the paragraph and personImage we created to the "gifDiv" div we created
             // gifDiv.append(p);

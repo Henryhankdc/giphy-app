@@ -1,17 +1,11 @@
 body {
     font-family: 'Poppins', sans-serif;
+    background-color: #C8E6C9;
 }
 
 h1 {
     font-family: 'Sedgwick Ave Display', cursive;
 
-}
-
-
-
-
-.jumbotron {
-    margin-bottom:0;
 }
 
 .btn-secondary {
@@ -25,7 +19,8 @@ h1 {
 
 .side-bar {
     background-color:#388E3C;
-    height:100%;
+    background-size:100vh;
+    height:100vh;
     border-right:2px solid #BDBDBD;
     padding-top:30px;
 }
@@ -33,7 +28,12 @@ h1 {
     background-color: #C8E6C9;
     height:100%;
     padding-top:30px;
+    overflow: scroll;
     
+}
+
+.main-content-title {
+    font-family: 'Sedgwick Ave Display', cursive;
 }
 
 div#gif-holder {
@@ -48,4 +48,14 @@ div#gif-holder {
 
 img.gif {
     max-width: 250px;
+}
+
+
+/* Media */
+
+@media (max-width:768px) {
+    .side-bar{
+        height:auto;
+    }
+   
 }
