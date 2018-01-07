@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-var topics = ['Fine', 'Yes!', 'No!', 'No Problem', 'FML', 'LOL', 'Magic'];
+var topics = ['LMFAO', 'Yes!', 'No!', 'No Problem', 'FML', 'LOL', 'Magic'];
 
 
 
@@ -13,11 +13,9 @@ function starterButtons(){
         $(startButtons).text(topics[i]);
 
     }
-
    
 }
-starterButtons();
-
+    starterButtons();
 function general() {
 
 // On click for gif buttons.
@@ -28,7 +26,8 @@ function general() {
 
         console.log('clicked');
         var gifValue = $(this).attr("data-value");
-
+        // add instructional text
+        $('.main-content-subhead').html('<p> Click the GIF to animate it.</p>');
 
          // Constructing a URL to search Giphy for the name of the person who said the quote
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
@@ -91,9 +90,6 @@ function general() {
 
     });
 //   end onclick
-
-
-
 }
 general();
 
@@ -107,7 +103,7 @@ function newGifButton(){
         e.preventDefault();
         var inputValue = $('#gif-text').val();
 
-    console.log(inputValue);
+    // console.log(inputValue);
         
     // create a new button with data value
     var newButton =$('<button type="button" class="btn btn-secondary gif-button">');
@@ -116,12 +112,12 @@ function newGifButton(){
         $(newButton).text(inputValue);
         // remove value from input field after hitting submit
         $('#gif-text').val('');
-
         // On click for gif buttons.
-    $('.gif-button').on('click', function(e){
+        $('.gif-button').on('click', function(e){
 
         e.preventDefault();
         $('#gif-holder').empty();
+        $('.main-content-subhead').html('<p> Click the GIF to animate it.</p>');
         
 
         // console.log('clicked');
@@ -192,9 +188,8 @@ function newGifButton(){
 
     });
 
-        // ****************************************
 
-    });
+ });
 
 
 
@@ -204,4 +199,4 @@ newGifButton();
 
 
 });
-// end document.ready
+
