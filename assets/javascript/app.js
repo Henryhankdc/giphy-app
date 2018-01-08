@@ -65,7 +65,7 @@ function general() {
             gifImage.attr("data-animate", results[i].images.fixed_height.url);
 
             gifRating.append('Rating: ' + '<span class="rating">' + results[i].rating + '</span>');
-            console.log(results[i].rating);
+            // console.log(results[i].rating);
               // Appending the paragraph and personImage we created to the "gifDiv" div we created
 
             
@@ -151,6 +151,7 @@ function newGifButton(){
 
             // create gif img tag
             var gifImage = $("<img data-state=\"still\">");
+            var gifRating = $('<p>');
 
             // Giving the image tag an src attribute of a proprty pulled off the
             // result item
@@ -162,12 +163,19 @@ function newGifButton(){
             // date-animate, animated image
             gifImage.attr("data-animate", results[i].images.fixed_height.url);
 
+            gifRating.append('Rating: ' + '<span class="rating">' + results[i].rating + '</span>');
+
               // Appending the paragraph and personImage we created to the "gifDiv" div we created
             // gifDiv.append(p);
-            gifItemDiv.append(gifImage);
+            gifItemDiv.append(gifImage, gifRating);
+
+
+
+         
 
             // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
             $("#gif-holder").prepend(gifItemDiv);
+            
 
         }
 
